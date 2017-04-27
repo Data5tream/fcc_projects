@@ -105,3 +105,28 @@ footer {
 .row .card {
   margin-bottom: 1em;
 }
+.project .card-block {
+  min-height: 12em;
+}
+.project .btn {
+  position: absolute;
+  bottom: 0.5em;
+  right: 0.5em;
+}
+
+.social-links {
+  height: 2.5em;
+  font-size: 2.5em;
+
+}
+.social-links a:link,
+.social-links a:visited {
+  color: #009688;
+  transition-duration: 0.5s;
+}
+.social-links a:hover,
+.social-links a:active {
+  color: #00bfa5;
+  font-size: 1.25em;
+  transition-duration: 0.5s;
+}
