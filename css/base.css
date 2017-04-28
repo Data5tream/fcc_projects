@@ -18,21 +18,24 @@ footer {
   top: 0;
   left: 0;
   width: 100%;
+  min-height: 2.5em;
   margin-left: 0;
   margin-right: 0;
   z-index: 1000;
   background-color: #424242;
 }
 
+#navbarNav {
+  min-height: 2.2em;
+}
+
 /* NavBar links */
 .linkbtn {
   display: inline-block;
-  background-color: #FFF;
   padding: 0.25em;
   margin-left: 0.25em;
   margin-right: 0.25em;
   border-radius: 2px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
 .linkbtn:link,
@@ -40,9 +43,12 @@ footer {
 .linkbtn:visited,
 .linkbtn:active {
   text-decoration: none;
+  transition-duration: 0.2s;
 }
 
 .linkbtn:hover {
-  background-color: #ddd;
-  color: #ef6c00;
+  border-bottom: solid 0.2em #ddd;
+  color: #ddd;
+
+  transition-duration: 0.2s;
 }
