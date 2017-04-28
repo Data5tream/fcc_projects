@@ -33,18 +33,42 @@ function changeBgColor() {
   $('.content').css('background-color', bgcolors[curColor]);
 }
 
+function callback(json) {
+  var content = json[0].content.substr(3, json[0].content.length-8);
+  $('#quote').text(unescapeHTML(content));
+  $('#quote-author').text("- "+json[0].title);
+}
+
 function getNewQuote() {
-  $.getJSON("https://crossorigin.me/http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", function(a) {
-    $("#quote").text(a[0].content);
-    $("#author").text(a[0].title);
-  });
+  $.ajax({
+     url:"http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=callback",
+     jsonp: 'callback',
+     dataType: 'jsonp',
+   });
 }
 
 $('document').ready(function() {
-  $('#quote').html("test");
   $('.content').css('background-color', getRandomColor());
   $('.content').css('transition', 'all 2.5s linear');
+  getNewQuote()
 
   bgchanger = setInterval(changeBgColor, 2500);
 
 });
+
+function unescapeHTML(str) {//modified from underscore.string and string.js
+  var escapeChars = { lt: '<', gt: '>', quot: '"', apos: "'", amp: '&' };
+  return str.replace(/\&([^;]+);/g, function(entity, entityCode) {
+      var match;
+
+      if ( entityCode in escapeChars) {
+          return escapeChars[entityCode];
+      } else if ( match = entityCode.match(/^#x([\da-fA-F]+)$/)) {
+          return String.fromCharCode(parseInt(match[1], 16));
+      } else if ( match = entityCode.match(/^#(\d+)$/)) {
+          return String.fromCharCode(~~match[1]);
+      } else {
+          return entity;
+      }
+  });
+}
