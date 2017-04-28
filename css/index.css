@@ -8,6 +8,10 @@ p {
   top: -40px;
 }
 
+#portrait {
+  margin-left: 4em;
+}
+
 .content-container {
   position: absolute;
   top: 0;
@@ -18,9 +22,11 @@ p {
 
 .one {
   padding-top: 10%;
-  min-height: 500px;
-  height: 70%;
-  background-color: #ff9800;
+  min-height: 800px;
+  background-image: url('../img/sky.jpg');
+  background-position: 50% 25%;
+  background-size: cover;
+  background-repeat: no-repeat;
   color: #fff;
   font-size: 1.5em;
 }
