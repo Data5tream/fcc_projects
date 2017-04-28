@@ -49,7 +49,7 @@ function callback(json) {
 
 function getNewQuote() {
   $.ajax({
-     url:"http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=callback",
+     url:"https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=callback",
      jsonp: 'callback',
      dataType: 'jsonp',
    });
