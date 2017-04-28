@@ -21,8 +21,13 @@ footer {
   min-height: 2.5em;
   margin-left: 0;
   margin-right: 0;
+  padding: 0;
   z-index: 1000;
   background-color: #424242;
+}
+.navbar-brand {
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
 }
 
 #navbarNav {
