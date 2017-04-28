@@ -1,0 +1,40 @@
+footer {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(66, 66, 66, 0.6);
+}
+
+.content {
+  position: absolute;
+  background-color: #37474f;
+  transition-duration: 5s;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.content .card {
+  position: relative;
+  top: 30%;
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+}
+
+.quote-text {
+  font-size: 2em;
+}
+#quote-author {
+  position: relative;
+  right: 0;
+  text-align: right;
+}
+
+.card-btns {
+  margin-top: 0.5em;
+}
+
+.btn:hover {
+  background-color: #e0e0e0;
+  transition-duration: 0.5s;
+}
