@@ -14,9 +14,13 @@ footer {
   height: 100%;
   overflow: hidden;
 }
-.content .card {
+.content > .row {
   position: relative;
   top: 30%;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.content .card {
   margin: 0 auto;
   float: none;
   margin-bottom: 10px;
