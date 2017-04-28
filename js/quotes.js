@@ -35,8 +35,16 @@ function changeBgColor() {
 
 function callback(json) {
   var content = json[0].content.substr(3, json[0].content.length-8);
-  $('#quote').text(unescapeHTML(content));
-  $('#quote-author').text("- "+json[0].title);
+  content = unescapeHTML(content)
+  var author = "- "+json[0].title;
+  if ((content.length + author.length + 12) > 140) {
+    getNewQuote()
+  } else {
+    $('#quote').text(content);
+    $('#quote-author').text(author);
+    var tweetstring = "%22"+encodeURIComponent(content)+"%22"+encodeURIComponent(author);
+    $('#tweet-quote').attr('href', 'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text='+tweetstring);
+  }
 }
 
 function getNewQuote() {
