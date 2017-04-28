@@ -9,8 +9,9 @@
 body {
   background-color: #37474f;
 }
-footer {
-  margin-top: 4em;
-  padding-bottom: 2em;
-  color: #78909c;
+
+.card {
+        margin: 0 auto;
+        float: none;
+        margin-bottom: 10px;
 }
