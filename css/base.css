@@ -30,6 +30,10 @@ footer {
   padding-bottom: 0.1em;
 }
 
+.navbar-toggler {
+  margin: 0.25em;
+}
+
 #navbarNav {
   min-height: 2.2em;
 }
