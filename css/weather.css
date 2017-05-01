@@ -1,0 +1,39 @@
+body {
+  background-color: #212121;
+  transition: all 4s linear;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(66, 66, 66, 0.6);
+}
+
+.content {
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  height: 30%;
+  width: 30%;
+  text-align: center;
+  color: #FFF;
+}
+
+.loading {
+  visibility: hidden;
+}
+
+.info {
+  visibility: visible;;
+}
+
+#condition {
+  font-size: 2em;
+}
+#temp {
+  font-size: 5em;
+}
+#location {
+  margin-top: 2em;
+  color: #424242;
+}
