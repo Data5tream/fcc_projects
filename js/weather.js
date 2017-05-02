@@ -12,17 +12,19 @@ function pulseBackground() {
   }
 }
 
-function getLocation() {
-  $.getJSON("https://ipinfo.io/?token=9ee4278e4a0574", function(res) {
-    $('#location').text(res.city);
-    getWeatherData(res.loc);
-  });
+function getWeatherData() {
+  $.ajax({
+     url:"http://proxy.7base.net/getWeather.py",
+     jsonp: 'callback',
+     dataType: 'jsonp',
+   });
 }
 
-function getWeatherData(loc) {
-  $.getJSON("https://api.darksky.net/forecast/ea59acfcf5d6d30a2dd77b24c7c35bff/"+loc, function(res) {
-    $('#condition').text(res.currently.summary);
-  });
+function callback(json) {
+  console.log(json);
+  $('#cond').text(json.cond);
+  $('#temp').text(json.temp);
+  $('#city').text(json.city);
 }
 
 $('document').ready(function() {

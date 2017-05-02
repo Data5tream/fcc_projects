@@ -27,13 +27,13 @@ footer {
   visibility: visible;;
 }
 
-#condition {
+#cond {
   font-size: 2em;
 }
 #temp {
   font-size: 5em;
 }
-#location {
+#city {
   margin-top: 2em;
   color: #424242;
 }
