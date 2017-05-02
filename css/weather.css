@@ -1,6 +1,6 @@
 body {
   background-color: #212121;
-  transition: all 4s linear;
+  transition: all 3s linear;
 }
 
 footer {
@@ -11,7 +11,7 @@ footer {
 
 .content {
   position: absolute;
-  top: 20%;
+  top: 25%;
   left: 35%;
   height: 30%;
   width: 30%;
@@ -19,25 +19,23 @@ footer {
   color: #FFF;
 }
 
-.loading {
-  visibility: hidden;
-}
-
 .info {
-  visibility: visible;;
+  visibility: hidden;
 }
 
 #cond {
   font-size: 2em;
 }
 #temp {
-  font-size: 5em;
+  font-size: 6em;
 }
 #unit {
-  font-size: 3.5em;
+  font-size: 4em;
   color: #DDD;
 }
 #city {
-  margin-top: 2em;
+  margin-top: 0.5em;
+  font-size: 1.5em;
+  font-style: italic;
   color: #424242;
 }

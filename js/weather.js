@@ -1,5 +1,12 @@
 var bgcol = 0;
 var bgchanger;
+var canvas;
+
+var bgcolors = [
+  '#039be5', //sunny
+  '#01579b', //rainy
+  '#37474f', //night
+]
 
 function pulseBackground() {
   var bgcs = ['#212121' , '#313131'];
@@ -12,6 +19,12 @@ function pulseBackground() {
   }
 }
 
+function setupCanvas() {
+  $('#canvas').attr('height', $(window).height());
+  $('#canvas').attr('width', $(window).width());
+  $('footer').css('bottom', 'inherit');
+}
+
 function getWeatherData() {
   $.ajax({
      url:"https://api.7base.net/getWeather.py",
@@ -21,13 +34,102 @@ function getWeatherData() {
 }
 
 function callback(json) {
-  console.log(json);
+  clearInterval(bgchanger);
   $('#cond').text(json.cond);
-  $('#temp').text(json.temp);
+  $('#temp').text(Math.round(json.temp));
   $('#city').text(json.city);
+  $('.info').css('visibility', 'visible').addClass('animated fadeInDownBig');
+  $('#loading').css('display', 'none');
+
+  var bgcolor = '#e65100'
+  if (canvas.getContext) {
+    var ctx = canvas.getContext('2d');
+    switch(json.icon) {
+      case 'clear-day':
+        bgcolor = bgcolors[0];
+        drawSun(ctx);
+        break;
+      case 'clear-night':
+        bgcolor = bgcolors[2];
+        break;
+      case 'rain':
+        bgcolor = bgcolors[1];
+        drawClouds(ctx);
+        // TODO add rain
+        break;
+      case 'snow':
+        break;
+      case 'sleet':
+        break;
+      case 'wind':
+        break;
+      case 'fog':
+        break;
+      case 'cloudy':
+        drawClouds(ctx);
+        // TODO add more clouds here
+        break;
+      case 'partly-cloudy-day':
+        bgcolor = bgcolors[0];
+        drawSun(ctx);
+        drawClouds(ctx);
+        break;
+      case 'partly-cloudy-night':
+        bgcolor = bgcolors[2];
+        break;
+    }
+    $('body').css('background-color', bgcolor);
+  }
 }
 
-$('document').ready(function() {
+function drawSun(ctx) {
+  ctx.beginPath();
+  ctx.arc(canvas.width/4, canvas.height/10, 50, 0, 2 * Math.PI, false);
+  ctx.fillStyle = '#ffeb3b';
+  ctx.fill();
+  ctx.lineWidth = 5;
+  ctx.strokeStyle = '#ffff00';
+  ctx.stroke();
+  ctx.closePath();
+}
+
+function drawClouds(ctx) {
+  var x = canvas.width/4+20;
+  var y = canvas.height/10+40;
+
+  ctx.beginPath();
+  ctx.arc(x, y, 50, 0, 2 * Math.PI, false);
+  ctx.fillStyle = '#fff';
+  ctx.fill();
+  ctx.lineWidth = 5;
+  ctx.strokeStyle = '#e0e0e0';
+  ctx.stroke();
+  ctx.closePath();
+
+  ctx.beginPath();
+  ctx.arc(x-120, y+20, 60, 0, 2 * Math.PI, false);
+  ctx.fillStyle = '#fff';
+  ctx.fill();
+  ctx.lineWidth = 5;
+  ctx.strokeStyle = '#e0e0e0';
+  ctx.stroke();
+  ctx.closePath();
+
+  ctx.beginPath();
+  ctx.arc(x-55, y+5, 70, 0, 2 * Math.PI, false);
+  ctx.fillStyle = '#fff';
+  ctx.fill();
+  ctx.lineWidth = 5;
+  ctx.strokeStyle = '#e0e0e0';
+  ctx.stroke();
+  ctx.closePath();
+}
+
+$(function () {
   bgchanger = setInterval(pulseBackground, 4000);
+  canvas = document.getElementById('canvas');
+  if (canvas.getContext) {
+    setupCanvas();
+  }
   getWeatherData();
 });
