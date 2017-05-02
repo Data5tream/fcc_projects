@@ -29,4 +29,5 @@ function callback(json) {
 
 $('document').ready(function() {
   bgchanger = setInterval(pulseBackground, 4000);
+  getWeatherData();
 });

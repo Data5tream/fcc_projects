@@ -33,6 +33,10 @@ footer {
 #temp {
   font-size: 5em;
 }
+#unit {
+  font-size: 3.5em;
+  color: #DDD;
+}
 #city {
   margin-top: 2em;
   color: #424242;
