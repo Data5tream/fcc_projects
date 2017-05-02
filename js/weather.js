@@ -14,7 +14,7 @@ function pulseBackground() {
 
 function getWeatherData() {
   $.ajax({
-     url:"http://proxy.7base.net/getWeather.py",
+     url:"https://api.7base.net/getWeather.py",
      jsonp: 'callback',
      dataType: 'jsonp',
    });
