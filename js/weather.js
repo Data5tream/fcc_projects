@@ -4,8 +4,10 @@ var canvas;
 
 var bgcolors = [
   '#039be5', //sunny
+  '#0288d1', //cloudy
   '#01579b', //rainy
   '#37474f', //night
+  '#bdbdbd', //snowy
 ]
 
 function pulseBackground() {
@@ -50,14 +52,18 @@ function callback(json) {
         drawSun(ctx);
         break;
       case 'clear-night':
-        bgcolor = bgcolors[2];
+        bgcolor = bgcolors[3];
+        drawMoon(ctx);
         break;
       case 'rain':
-        bgcolor = bgcolors[1];
-        drawClouds(ctx);
+        bgcolor = bgcolors[2];
+        drawClouds(ctx, 2);
         // TODO add rain
         break;
       case 'snow':
+        bgcolor = bgcolors[3];
+        drawClouds(ctx, 2);
+        // TODO add snow
         break;
       case 'sleet':
         break;
@@ -66,6 +72,7 @@ function callback(json) {
       case 'fog':
         break;
       case 'cloudy':
+        bgcolor = bgcolors[1];
         drawClouds(ctx, 2);
         // TODO add more clouds here
         break;
@@ -75,7 +82,9 @@ function callback(json) {
         drawClouds(ctx, 1);
         break;
       case 'partly-cloudy-night':
-        bgcolor = bgcolors[2];
+        bgcolor = bgcolors[3];
+        drawMoon(ctx);
+        drawClouds(ctx, 1);
         break;
     }
     $('body').css('background-color', bgcolor);
@@ -89,6 +98,17 @@ function drawSun(ctx) {
   ctx.fill();
   ctx.lineWidth = 5;
   ctx.strokeStyle = '#ffff00';
+  ctx.stroke();
+  ctx.closePath();
+}
+
+function drawMoon(ctx) {
+  ctx.beginPath();
+  ctx.arc(canvas.width/4, canvas.height/10, 50, 0, 2 * Math.PI, false);
+  ctx.fillStyle = '#fafafa';
+  ctx.fill();
+  ctx.lineWidth = 5;
+  ctx.strokeStyle = '#eeeeee';
   ctx.stroke();
   ctx.closePath();
 }
