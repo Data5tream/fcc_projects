@@ -39,6 +39,15 @@ function callback(json) {
   clearInterval(bgchanger);
   $('#cond').text(json.cond);
   $('#temp').text(Math.round(json.temp));
+  $('#unit').click(function() {
+    if ($('#unit').text() == 'ºC') {
+      $('#temp').text(Math.round(json.temp*9/5+32));
+      $('#unit').text('ºF');
+    } else {
+      $('#temp').text(Math.round(json.temp));
+      $('#unit').text('ºC');
+    }
+  });
   $('#city').text(json.city);
   $('.info').css('display', 'inherit').addClass('animated fadeInDownBig');
   $('#loading').css('display', 'none');

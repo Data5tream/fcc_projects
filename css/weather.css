@@ -32,6 +32,7 @@ footer {
 #unit {
   font-size: 4em;
   color: #DDD;
+  cursor: pointer;
 }
 #city {
   margin-top: 0.5em;
