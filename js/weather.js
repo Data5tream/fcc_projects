@@ -40,54 +40,54 @@ function callback(json) {
   $('#cond').text(json.cond);
   $('#temp').text(Math.round(json.temp));
   $('#city').text(json.city);
-  $('.info').css('visibility', 'visible').addClass('animated fadeInDownBig');
+  $('.info').css('display', 'inherit').addClass('animated fadeInDownBig');
   $('#loading').css('display', 'none');
 
   var bgcolor = '#e65100'
   if (canvas.getContext) {
     var ctx = canvas.getContext('2d');
+    var ico = 'clear-day.svg';
     switch(json.icon) {
       case 'clear-day':
         bgcolor = bgcolors[0];
-        drawSun(ctx);
         break;
       case 'clear-night':
         bgcolor = bgcolors[3];
-        drawMoon(ctx);
+        ico = 'clear-night.svg';
         break;
       case 'rain':
         bgcolor = bgcolors[2];
-        drawClouds(ctx, 2);
+        ico = 'rain.svg'
         // TODO add rain
         break;
       case 'snow':
         bgcolor = bgcolors[3];
-        drawClouds(ctx, 2);
-        // TODO add snow
+        ico = 'snow.svg';
         break;
       case 'sleet':
+        ico = 'sleet.svg';
         break;
       case 'wind':
+        ico = 'wind.svg';
         break;
       case 'fog':
+        ico = 'fog.svg';
         break;
       case 'cloudy':
         bgcolor = bgcolors[1];
-        drawClouds(ctx, 2);
-        // TODO add more clouds here
+        ico = 'cloudy.svg';
         break;
       case 'partly-cloudy-day':
         bgcolor = bgcolors[0];
-        drawSun(ctx);
-        drawClouds(ctx, 1);
+        ico = 'partly-cloudy-day.svg';
         break;
       case 'partly-cloudy-night':
         bgcolor = bgcolors[3];
-        drawMoon(ctx);
-        drawClouds(ctx, 1);
+        ico = 'partly-cloudy-night.svg';
         break;
     }
     $('body').css('background-color', bgcolor);
+    $('#icon').attr('src', 'svg/'+ico);
   }
 }
 

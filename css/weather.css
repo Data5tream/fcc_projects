@@ -20,7 +20,7 @@ footer {
 }
 
 .info {
-  visibility: hidden;
+  display: none;
 }
 
 #cond {
@@ -37,5 +37,5 @@ footer {
   margin-top: 0.5em;
   font-size: 1.5em;
   font-style: italic;
-  color: #424242;
+  color: #bdbdbd;
 }
