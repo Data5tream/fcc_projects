@@ -22,20 +22,22 @@
     <div class="col-md-2"></div>
     <a class="navbar-brand" href="index.html"><img src="img/brand_icon.png" width="48" height="48" alt="data5tream"></a>
     <div class="navbar-collapse collapse text-center" id="navbarNav">
-      <a id="introbtn" class="linkbtn" href="#intro">Intro</a>
-      <a id="portobtn" class="linkbtn" href="#porto">Portfolio</a>
-      <a id="contactbtn" class="linkbtn" href="#contact">Contact</a>
+      <a id="introbtn" class="linkbtn" href="#intro" onclick="shiftTo('intro')">Intro</a>
+      <a id="portobtn" class="linkbtn" href="#porto" onclick="shiftTo('porto')">Portfolio</a>
+      <a id="contactbtn" class="linkbtn" href="#contact" onclick="shiftTo('contact')">Contact</a>
     </div>
   </nav>
 
   <div id="intro" class="content-container">
-    <div class="one">
-      <div class="col-sm-8 offset-sm-2">
-        <img src="img/portrait.jpg" id="portrait" class="rounded-circle img-fluid img-thumbnail float-right animated bounceInRight" alt="me">
+    <div class="one row">
+      <div class="col-10 offset-1 col-md-5 offset-md-2">
         <h1 class="text-center">Simon St. Barth <small>@data5tream</small></h1>
-        <p>
-          20 y/o guy from southern Spain studying full-stack deving with <b>freeCodeCamp</b>. My code usually fails because of some tpyo...<br /> I sometimes google the sun to remember who it looks like.
+        <p id="prestext">
+          I'm a 21 year old guy from southern Spain who was been playing with different programming languages for years. I'm currently focusing on web & Android development
         </p>
+      </div>
+      <div class="col-8 offset-2 col-md-3 offset-md-0">
+        <img src="img/portrait.jpg" id="portrait" class="rounded-circle img-fluid img-thumbnail animated bounceInRight" alt="me">
       </div>
     </div>
     <a id="porto"></a>
@@ -46,7 +48,7 @@
           <p class="wide-text">Here's a list of my projects (including some placeholders until I have enough)</p><br /><br />
 
           <div class="row">
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-8 offset-2 col-sm-6 offset-sm-0 col-lg-3">
               <div class="card project">
                 <a href="tribute-page.html"><img class="card-img-top img-fluid"  src="img/tribute_thumbnail.png" alt="Tribute page"></a>
                 <div class="card-block">
@@ -56,7 +58,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-8 offset-2 col-sm-6 offset-sm-0 col-lg-3">
               <div class="card project">
                 <a href="quote-machine.html"><img class="card-img-top img-fluid"  src="img/quote_thumbnail.png" alt="Quote machine"></a>
                 <div class="card-block">
@@ -66,7 +68,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-8 offset-2 col-sm-6 offset-sm-0 col-lg-3">
               <div class="card project">
                 <a href="weather.html"><img class="card-img-top img-fluid"  src="img/weather_thumbnail.png" alt="Current weather"></a>
                 <div class="card-block">
@@ -76,7 +78,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-8 offset-2 col-sm-6 offset-sm-0 col-lg-3">
               <div class="card project">
                 <img class="card-img-top img-fluid"  src="https://static.pexels.com/photos/301326/pexels-photo-301326.jpeg" alt="Coffee">
                 <div class="card-block">
@@ -102,11 +104,11 @@
               </h5>
               <hr>
               <div class="text-center social-links row">
-                <div class="col-md-2 offset-md-3 link-github">
+                <div class="col-2 offset-3 link-github">
                   <a target="_blank" href="https://github.com/Data5tream"><i class="fa fa-github" aria-hidden="true"></i></a>
-                </div><div class="col-md-2 link-fcc">
+                </div><div class="col-2 link-fcc">
                   <a target="_blank" href="https://www.freecodecamp.com/data5tream"><i class="fa fa-free-code-camp" aria-hidden="true"></i></a>
-                </div><div class="col-md-2 link-twitter">
+                </div><div class="col-2 link-twitter">
                   <a target="_blank" href="https://www.twitter.com/data5tream"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                 </div>
               </div>
@@ -124,8 +126,9 @@
     </footer>
   </div>
 
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="js/bootstrap.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>
