@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<title>@Data5tream's portfolio</title>
+<title>7Base.Net</title>
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/animate.css">
@@ -12,42 +12,68 @@
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+<link rel="manifest" href="img/manifest.json">
 </head>
 
 <body>
-<nav class="navbar navbar-toggleable-md navbar-inverse row">
+  <nav class="navbar navbar-toggleable-md navbar-inverse row">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="col-md-2"></div>
     <a class="navbar-brand" href="index.html"><img src="img/brand_icon.png" width="48" height="48" alt="data5tream"></a>
     <div class="navbar-collapse collapse text-center" id="navbarNav">
-      <a id="introbtn" class="linkbtn" href="#intro" onclick="shiftTo('intro')">Intro</a>
+      <a id="homebtn" class="linkbtn" href="#home" onclick="shiftTo('home')">Home</a>
+      <a id="aboutmebtn" class="linkbtn" href="#aboutme" onclick="shiftTo('aboutme')">About me</a>
       <a id="portobtn" class="linkbtn" href="#porto" onclick="shiftTo('porto')">Portfolio</a>
       <a id="contactbtn" class="linkbtn" href="#contact" onclick="shiftTo('contact')">Contact</a>
     </div>
   </nav>
 
-  <div id="intro" class="content-container">
+  <div id="home" class="content-container">
     <div class="one row">
       <div class="col-10 offset-1 col-md-5 offset-md-2">
         <h1 class="text-center">Simon St. Barth <small>@data5tream</small></h1>
         <p id="prestext">
-          I'm a 21 year old guy from southern Spain who was been playing with different programming languages for years. I'm currently focusing on web & Android development
+          Web Designer and Developer in the making. Building my own brand one page at a time.
         </p>
       </div>
       <div class="col-8 offset-2 col-md-3 offset-md-0">
         <img src="img/portrait.jpg" id="portrait" class="rounded-circle img-fluid img-thumbnail animated bounceInRight" alt="me">
       </div>
     </div>
+    <a id="aboutme"></a>
+    <div class="wide-text-container container-fluid">
+      <div class="row">
+        <div class="col-12 col-md-8 offset-md-2">
+          <h2 class="text-center">About me</h2>
+          <p class="wide-text">I'm a young guy from southern Spain who's trying to establish foot in the IT world. My main interests are web design and development as well as SEO and small automatation jobs. I work with HTML5 and JavaScript for frontend and Python and PHP for the backend. While I have little "real-life" experience right now I'm always interested in new challenges.
+        </div>
+      </div>
+    </div>
+    <div class="sep"></div>
     <a id="porto"></a>
     <div class="wide-text-container container-fluid">
       <div class="row">
         <div class="col-md-8 offset-md-2 col-12">
           <h2 class="text-center">Portfolio</h2>
-          <p class="wide-text">Here's a list of my projects (including some placeholders until I have enough)</p><br /><br />
+          <p class="wide-text">A small list with my currently completed projects (plus some stuff from freeCodeCamp)</p><br /><br />
 
           <div class="row">
+            <div class="col-8 offset-2 col-sm-6 offset-sm-0 col-lg-3">
+              <div class="card project">
+                <img class="card-img-top img-fluid"  src="img/chiemgau_fahrdienst_thumbnail.png" alt="Chiemgau Fahrdienst">
+                <div class="card-block">
+                  <h4 class="card-title">Chiemgau Fahrdienst</h3>
+                  <p class="card-text">Design adaptation, IT consulting and SEO</p>
+                  <a href="https://chiemgau-fahrdienst.de" target="_blank" class="btn btn-primary">Visit Chiemgau Fahrdienst</a>
+                </div>
+              </div>
+            </div>
             <div class="col-8 offset-2 col-sm-6 offset-sm-0 col-lg-3">
               <div class="card project">
                 <a href="tribute-page.html"><img class="card-img-top img-fluid"  src="img/tribute_thumbnail.png" alt="Tribute page"></a>
@@ -78,16 +104,6 @@
                 </div>
               </div>
             </div>
-            <div class="col-8 offset-2 col-sm-6 offset-sm-0 col-lg-3">
-              <div class="card project">
-                <img class="card-img-top img-fluid"  src="https://static.pexels.com/photos/301326/pexels-photo-301326.jpeg" alt="Coffee">
-                <div class="card-block">
-                  <h3 class="card-title">Coffee model</h3>
-                  <p class="card-text">We all need coffee, by Fernando Gimenez </p>
-                  <a href="https://pixabay.com/en/users/soysuperfer-3895353/" target="_blank" class="btn btn-primary">Visit Fernando's profile</a>
-                </div>
-              </div>
-            </div>
           </div>
 
         </div>
@@ -100,7 +116,7 @@
             <div class="card-block">
               <h2 class="card-title">Contact</h2>
               <h5 class="card-subtitle mb-2 text-muted">
-                You can contact me over <a target="_blank" href="https://gitter.im/Data5tream">gitter.im</a> or <a target="_blank" href="https://twitter.com/data5tream">twitter</a><br /><br />
+                You can contact me over <a target="_blank" href="https://gitter.im/Data5tream">Gitter.im</a>
               </h5>
               <hr>
               <div class="text-center social-links row">
@@ -120,7 +136,7 @@
     <footer class="container-fluid">
       <div class="row">
         <div class="col-lg-4 offset-md-1 col-6">
-          <i class="fa fa-copyright" aria-hidden="true"></i> <a href="https://www.github.com/Data5tream" target="_blank">@Data5tream</a>, 2017
+          <i class="fa fa-copyright" aria-hidden="true"></i> <a href="https://www.github.com/Data5tream" target="_blank">Simon St. Barth</a>, 2017
         </div>
       </div>
     </footer>

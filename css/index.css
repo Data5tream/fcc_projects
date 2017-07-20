@@ -12,6 +12,12 @@ p {
   margin-left: 4em;
 }
 
+.sep {
+  width: 100%;
+  height: 7.5em;
+  background-color: #37474f;
+}
+
 .content-container {
   position: absolute;
   top: 0;
