@@ -1,0 +1,16 @@
+body {
+  background-color: #1976d2;
+}
+
+.content {
+  position: absolute;
+  top: 25%;
+  left: 35%;
+  width: 30%;
+  text-align: center;
+  color: #212121;
+  padding: 8px 16px 16px 16px !important;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
