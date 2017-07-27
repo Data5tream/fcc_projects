@@ -7,14 +7,10 @@ function searchWiki() {
       crossDomain: true,
       headers: { 'Api-User-Agent': 'Data5tream.Wikisearcher/1.0' },
       success: function( data ) {
-        console.log( data );
+        $("#res").text(data);
       }
     } );
   }
-}
-
-function callback(json) {
-  alert("JEp");
 }
 
 $(function () {
@@ -22,5 +18,9 @@ $(function () {
       if(event.keyCode == 13){
           $("#searchbtn").click();
       }
+  });
+  $("#searchbtn").click(function(event) {
+    searchWiki();
+    event.preventDefault();
   });
 });
