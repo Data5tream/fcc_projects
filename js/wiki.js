@@ -1,5 +1,6 @@
 function searchWiki() {
   var qtxt = $('#searchfield').val();
+  var rdiv = $("#res");
   if (qtxt.length > 0) {
     $.ajax( {
       url: "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&&search="+qtxt,
@@ -7,7 +8,11 @@ function searchWiki() {
       crossDomain: true,
       headers: { 'Api-User-Agent': 'Data5tream.Wikisearcher/1.0' },
       success: function( data ) {
-        $("#res").text(data);
+        rdiv.empty();
+        rdiv.append("<h4>Results for: \""+data[0]+"\"</h4>");
+        for (var i=0; i < data[1].length; i++) {
+          rdiv.append("<div><a href=\""+data[3][i]+"\"><h5>"+data[1][i]+"</h5></a>"+data[2][i]+"</div>")
+        }
       }
     } );
   }
