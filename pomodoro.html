@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Pomodoro clock</title>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/pomodoro.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+</head>
+
+<body>
+<div class="content">
+  <div class="container">
+    <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+      <div class="card text-center">
+        <h2>Pomodoro</h2>
+        <div>
+          <canvas height="400" width="400" id="clockcanvas">Unsupported browser :(</canvas>
+          <div id="toggler"></div>
+          <div id="time">
+            25:00:00
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/pomodoro.js"></script>
+</body>
+</html>
