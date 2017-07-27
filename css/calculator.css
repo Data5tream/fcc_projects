@@ -1,9 +1,5 @@
 body {
   background-color: #424242;
-  background-image: url('../img/sky.jpg');
-  background-position: 50% 0%;
-  background-size: cover;
-  background-repeat: no-repeat;
   height: 100%;
   overflow: hidden;
 }

@@ -23,7 +23,16 @@ $(function() {
         operators.push(match);
       });
     }
-    if (numbers.length != operators.length+1 || operators.length < 1) {
+    if (numbers.length <= 1 && operators.length == 0) {
+      if (numbers.length == 0) {
+        $('#res').text("0");
+        $('#act').text("0")
+      } else {
+        $('#res').text(numbers[0]);
+      }
+      act = "";
+      res = 0;
+    }else if (numbers.length != operators.length+1 || operators.length < 1) {
       alert("Invalid query!");
     } else {
       if (operators[0] == "/") {
@@ -52,9 +61,7 @@ $(function() {
     }
   }
 
-  $('button').click(function() {
-    var input = $(this).attr('value');
-
+  function getInput(input) {
     if (input == "=") {
       calculate();
     } else if (input == "ce") {
@@ -72,5 +79,30 @@ $(function() {
       act += input;
       $('#act').text(act);
     }
+
+  }
+
+  $(document).keyup(function(event) {
+    var inp = Number(event.which);
+    if (inp >= 48 && inp <= 57) {
+      getInput('' +inp-48);
+      console.log("FUCK");
+    } else if (inp >= 96 && inp <= 105) {
+      getInput('' +inp-96);
+    } else if (inp == 106) {
+      getInput("*");
+    } else if (inp == 107) {
+      getInput("+");
+    } else if (inp == 109) {
+      getInput("-");
+    } else if (inp == 111) {
+      getInput("/");
+    } else if (inp == 13) {
+      calculate();
+    }
+  });
+
+  $('button').click(function() {
+    getInput($(this).attr('value'));
   });
 });
