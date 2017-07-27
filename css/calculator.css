@@ -5,11 +5,6 @@ body {
 }
 
 #content {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  width: 360px;
-  margin-left: -180px;
   text-align: center;
   color: #212121;
   padding: 32px 16px 32px 16px !important;
@@ -20,6 +15,10 @@ body {
 
 #act {
   font-size: 1.5em;
+}
+
+.mastercontent {
+  margin-top: 10%;
 }
 
 .btn {
