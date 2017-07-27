@@ -100,68 +100,6 @@ function callback(json) {
   }
 }
 
-function drawSun(ctx) {
-  ctx.beginPath();
-  ctx.arc(canvas.width/4, canvas.height/10, 50, 0, 2 * Math.PI, false);
-  ctx.fillStyle = '#ffeb3b';
-  ctx.fill();
-  ctx.lineWidth = 5;
-  ctx.strokeStyle = '#ffff00';
-  ctx.stroke();
-  ctx.closePath();
-}
-
-function drawMoon(ctx) {
-  ctx.beginPath();
-  ctx.arc(canvas.width/4, canvas.height/10, 50, 0, 2 * Math.PI, false);
-  ctx.fillStyle = '#fafafa';
-  ctx.fill();
-  ctx.lineWidth = 5;
-  ctx.strokeStyle = '#eeeeee';
-  ctx.stroke();
-  ctx.closePath();
-}
-
-function drawClouds(ctx, num) {
-  //TODO add outline to clouds
-  switch (num) {
-    case 4:
-    case 3:
-    case 2:
-      // Cloud #2
-      var x = canvas.width/4-50;
-      var y = canvas.height/10+10;
-      ctx.fillStyle = '#e0e0e0';
-
-      ctx.beginPath();
-      ctx.arc(x, y+30, 50, 0, 2*Math.PI, true);
-      ctx.arc(x-120, y+20, 60, 0, 2 * Math.PI, false);
-      ctx.fill();
-      ctx.closePath();
-      ctx.beginPath();
-      ctx.arc(x-55, y+5, 70, 0, 2 * Math.PI, false);
-      ctx.fill();
-      ctx.closePath();
-      ctx.fillRect(x-120, y+20, 120, 60);
-    case 1:
-      // Cloud #1
-      var x = canvas.width/4+20;
-      var y = canvas.height/10+40;
-      ctx.fillStyle = '#fff';
-
-      ctx.beginPath();
-      ctx.arc(x, y+30, 50, 0, 2*Math.PI, true);
-      ctx.arc(x-120, y+20, 60, 0, 2 * Math.PI, false);
-      ctx.fill();
-      ctx.closePath();
-      ctx.beginPath();
-      ctx.arc(x-55, y+5, 70, 0, 2 * Math.PI, false);
-      ctx.fill();
-      ctx.closePath();
-      ctx.fillRect(x-120, y+20, 120, 60);
-  }
-}
-
 $(function () {
   bgchanger = setInterval(pulseBackground, 4000);
   canvas = document.getElementById('canvas');
