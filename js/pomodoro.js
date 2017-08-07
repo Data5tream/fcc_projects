@@ -121,9 +121,12 @@ $(function() {
 
   function countdown() {
     var t = pomtime - Date.parse(new Date());
-    if (t <= 0) {
+    if (t < 0) {
       clearInterval(timer);
-      alert("FINISHED");
+      $('#contcard').addClass("animated infinite shake");
+      $('#contcard').on('click', function() {
+        $(this).removeClass("animated infinite shake");
+      });
       // Timer has reached 0
     } else {
       var secs = Math.floor( (t/1000) % 60 );
