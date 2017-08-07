@@ -23,7 +23,19 @@
           <canvas height="400" width="400" id="clockcanvas">Unsupported browser :(</canvas>
           <div id="toggler"></div>
           <div id="time">
-            25:00:00
+            <span id="hor">00</span>:<span id="min">25</span>:<span id="sec">00</span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="mainmins" class="col-sm-4 offset-sm-2 col-form-label">Main minutes</label>
+          <div class="col-3">
+            <input class="form-control" type="number" value="25" id="mainmins">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="breakmins" class="col-sm-4 offset-sm-2 col-form-label">Break minutes</label>
+          <div class="col-3">
+            <input class="form-control" type="number" value="5" id="breakmins">
           </div>
         </div>
       </div>

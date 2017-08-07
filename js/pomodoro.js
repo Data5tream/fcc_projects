@@ -25,8 +25,7 @@ $(function() {
   var canvas = document.getElementById('clockcanvas');
   var ctx = canvas.getContext('2d');
   var waiting = true;
-  var pomtime = 60;
-  var remtime = pomtime;
+  var pomtime = 0;
 
   function getRandomColor() {
     curColor = Math.floor(Math.random()*bgcolors.length);
@@ -45,7 +44,7 @@ $(function() {
 
   var pos = 270; // Starting position
   var len = 10; // Length in º
-  var spd = 0.5; // Speed in º/s
+  var spd = 0.1; // 1 RPM
 
   // requestAnim shim layer by Paul Irish
   window.requestAnimFrame = (function () {
@@ -94,49 +93,25 @@ $(function() {
     ctx.arc(200,200,100,0,2*Math.PI);
     ctx.stroke();
   }
-  function runAnimation() {
-    if (pos-270 >= 360) {
-      toggleAnim();
-      //TODO Alert when time is finished
-    }
-    if (!waiting) {
-      ctx.globalCompositeOperation = 'destination-out';
-      ctx.beginPath();
-      ctx.lineWidth = 10;
-      ctx.arc(200,200,100,pos*(Math.PI/180),(pos+len+10)*(Math.PI/180));
-      ctx.stroke();
-
-      ctx.globalCompositeOperation = 'source-over';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.arc(200,200,100,pos*(Math.PI/180),(pos+len+10)*(Math.PI/180));
-      ctx.stroke();
-
-      requestAnimFrame(runAnimation);
-    }
-  }
-
-  function timecount() {
-    pos = pos + 360/pomtime*(pomtime-remtime);
-    remtime -= 1;
-    console.log(pos);
-  }
 
   function toggleAnim() {
     if (waiting) {
+      // Start countdown
+
+      pomtime = Date.parse(new Date()) + $('#hor').text()*60*60*1000 + $('#min').text()*60*1000 + $('#sec').text()*1000;
+
       waiting = false;
       pos = 270;
-      len = 0;
-      spd = 360/pomtime;
       ctx.strokeStyle = runningColor;
       fullBackdrop();
-      runAnimation();
-      timer = setInterval(timecount, 1000);
+
+      timer = setInterval(countdown, 1000);
+
     } else {
+      // Stop countdown
+
       waiting = true;
       pos = 270;
-      len = 10; // Length in º
-      spd = 0.5; // Speed in º/s
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       clearInterval(timer);
       waitAnimation();
@@ -144,8 +119,38 @@ $(function() {
     }
   }
 
+  function countdown() {
+    var t = pomtime - Date.parse(new Date());
+    if (t <= 0) {
+      clearInterval(timer);
+      alert("FINISHED");
+      // Timer has reached 0
+    } else {
+      var secs = Math.floor( (t/1000) % 60 );
+      var mins = Math.floor( (t/1000/60) % 60 );
+      var hors = Math.floor( (t/(1000*60*60)) % 24 );
+      $('#hor').text(tailC(hors));
+      $('#min').text(tailC(mins));
+      $('#sec').text(tailC(secs));
+    }
+  }
+
+  function tailC(num) {
+    if (num < 10 && num >= 0) {
+      return "0"+num;
+    } else {
+      return num;
+    }
+  }
+
   $('#toggler').click(function() {
     toggleAnim();
+  });
+
+  $('#mainmins').on('change', function() {
+    if (waiting) {
+      $('#min').text($('#mainmins').val());
+    }
   });
 
   // Start color gradients
