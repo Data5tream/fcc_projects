@@ -19,7 +19,7 @@
   <div class="container">
     <div id="contcard" class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
       <div class="card text-center">
-        <h2>Pomodoro</h2>
+        <h2 id="title">Work</h2>
         <div>
           <canvas height="400" width="400" id="clockcanvas">Unsupported browser :(</canvas>
           <div id="toggler"></div>
@@ -27,16 +27,30 @@
             <span id="hor">00</span>:<span id="min">25</span>:<span id="sec">00</span>
           </div>
         </div>
-        <div class="form-group row">
-          <label for="mainmins" class="col-sm-4 offset-sm-2 col-form-label">Main minutes</label>
-          <div class="col-3">
-            <input class="form-control" type="number" value="25" id="mainmins">
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Work Time</h4>
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary chngbtn" value="mm">-</button>
+              </span>
+              <input class="form-control" type="time" value="25" id="mainmins">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary chngbtn" value="mp">+</button>
+              </span>
+            </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <label for="breakmins" class="col-sm-4 offset-sm-2 col-form-label">Break minutes</label>
-          <div class="col-3">
-            <input class="form-control" type="number" value="5" id="breakmins">
+          <div class="col-md-6">
+            <h4>Break Time</h4>
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary chngbtn" value="bm">-</button>
+              </span>
+              <input class="form-control" type="time" value="5" id="breakmins">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary chngbtn" value="bp">+</button>
+              </span>
+            </div>
           </div>
         </div>
       </div>

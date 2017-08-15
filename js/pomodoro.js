@@ -26,6 +26,7 @@ $(function() {
   var ctx = canvas.getContext('2d');
   var waiting = true;
   var pomtime = 0;
+  var working = true;
 
   function getRandomColor() {
     curColor = Math.floor(Math.random()*bgcolors.length);
@@ -127,7 +128,15 @@ $(function() {
       $('#contcard').on('click', function() {
         $(this).removeClass("animated infinite shake");
       });
-      // Timer has reached 0
+      if (working) {
+        updateTime(parseInt($('#breakmins').val()));
+        $('#title').text('Break');
+      } else {
+        updateTime(parseInt($('#mainmins').val()));
+        $('#title').text('Work');
+      }
+      working = !working;
+      waiting = true;
     } else {
       var secs = Math.floor( (t/1000) % 60 );
       var mins = Math.floor( (t/1000/60) % 60 );
@@ -146,13 +155,43 @@ $(function() {
     }
   }
 
+  function updateTime(t) {
+    $('#hor').text(tailC(Math.floor(t/60)));
+    $('#min').text(tailC(Math.floor(t%60)));
+  }
+
   $('#toggler').click(function() {
     toggleAnim();
   });
 
+  $('.chngbtn').click(function() {
+    switch ($(this).val()) {
+      case 'mm':
+        $('#mainmins').val(parseInt($('#mainmins').val())-1);
+        break;
+      case 'mp':
+        $('#mainmins').val(parseInt($('#mainmins').val())+1);
+        break;
+      case 'bm':
+        $('#breakmins').val(parseInt($('#breakmins').val())-1);
+        break;
+      case 'bp':
+        $('#breakmins').val(parseInt($('#breakmins').val())+1);
+        break;
+    }
+    if (waiting) {
+      if (working) {
+        var t = parseInt($('#mainmins').val());
+      } else {
+        var t = parseInt($('#breakmins').val());
+      }
+      updateTime(t);
+    }
+  });
+
   $('#mainmins').on('change', function() {
     if (waiting) {
-      $('#min').text($('#mainmins').val());
+      updateTime(parseInt($('#mainmins').val()));
     }
   });
 
