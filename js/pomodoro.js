@@ -57,7 +57,7 @@ $(function() {
   function circleBackdrop() {
     ctx.lineWidth = 1;
     ctx.beginPath();
-    ctx.arc(200,200,100,0,2*Math.PI);
+    ctx.arc(100,100,80,0,2*Math.PI);
     ctx.stroke();
   }
   function waitAnimation() {
@@ -69,19 +69,19 @@ $(function() {
       ctx.globalCompositeOperation = 'destination-out';
       ctx.beginPath();
       ctx.lineWidth = 10;
-      ctx.arc(200,200,100,(pos-len-10)*(Math.PI/180),pos*(Math.PI/180));
+      ctx.arc(100,100,80,(pos-len-10)*(Math.PI/180),pos*(Math.PI/180));
       ctx.stroke();
 
       ctx.globalCompositeOperation = 'source-over';
       ctx.lineWidth = 1;
       ctx.beginPath();
-      ctx.arc(200,200,100,(pos-len-10)*(Math.PI/180),pos*(Math.PI/180));
+      ctx.arc(100,100,80,(pos-len-10)*(Math.PI/180),pos*(Math.PI/180));
       ctx.stroke();
 
       pos += spd;
       ctx.beginPath();
       ctx.lineWidth = 5;
-      ctx.arc(200,200,100,(pos-len)*(Math.PI/180),pos*(Math.PI/180));
+      ctx.arc(100,100,80,(pos-len)*(Math.PI/180),pos*(Math.PI/180));
       ctx.stroke();
 
       requestAnimFrame(waitAnimation);
@@ -91,7 +91,7 @@ $(function() {
   function fullBackdrop() {
     ctx.lineWidth = 10;
     ctx.beginPath();
-    ctx.arc(200,200,100,0,2*Math.PI);
+    ctx.arc(100,100,80,0,2*Math.PI);
     ctx.stroke();
   }
 
