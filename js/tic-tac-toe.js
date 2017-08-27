@@ -46,13 +46,13 @@ function startGame() {
   }
 }
 function doTurn(pos) {
-  if (turnc % 2 + fturn == 0) { // It's a CPU turn
+  if (isCpuTurn) {
     if (p1sym == 0) {
       sym = "X";
     } else {
       sym = "O";
     }
-  } else { // It's a human turn
+  } else {
     if (p1sym == 0) {
       sym = "O";
     } else {
@@ -61,6 +61,11 @@ function doTurn(pos) {
   }
 
   $('#'+pos).text(sym);
+}
+
+// Returns true if CPU turn, false if human turn
+function isCpuTurn() {
+  return (turnc % 2 + fturn == 0);
 }
 
 function humanTurn() {
