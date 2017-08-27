@@ -11,5 +11,5 @@
 * Advanced Front End Dev Projects
   * [Calculator](https://data5tream.github.io/fcc_projects/calculator.html)
   * [Pomodoro Clock](https://data5tream.github.io/fcc_projects/pomodoro.html)
-  * [Tic-Tac-Toe Game](https://data5tream.github.io/fcc_projects/tic-tac-toe.html)
+  * [Tic-Tac-Toe Game](https://data5tream.github.io/fcc_projects/tic-tac-toe.html) (_WIP_)
   * [~~Simon Game~~](https://data5tream.github.io/fcc_projects/simon-game.html)
